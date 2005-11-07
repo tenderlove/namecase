@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>nc (NameCase)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/namecase.rb, line 4</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nc</span>
+    <span class="ruby-identifier">localstring</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\b\w/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">first</span><span class="ruby-operator">|</span> <span class="ruby-identifier">first</span>.<span class="ruby-identifier">upcase</span> }
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;\'\w\b&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">downcase</span> } <span class="ruby-comment cmt"># Lowercase 's</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">localstring</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\bMac[A-Za-z]{2,}[^aciozj]\b/</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">localstring</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\bMc/</span>
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\b(Ma?c)([A-Za-z]+)/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span> <span class="ruby-identifier">$1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$2</span>.<span class="ruby-identifier">capitalize</span> }
+
+      <span class="ruby-comment cmt"># Now fix &quot;Mac&quot; exceptions</span>
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacEvicius/</span>, <span class="ruby-value str">'Macevicius'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacHado/</span>, <span class="ruby-value str">'Machado'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacHar/</span>, <span class="ruby-value str">'Machar'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacHin/</span>, <span class="ruby-value str">'Machin'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacHlin/</span>, <span class="ruby-value str">'Machlin'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacIas/</span>, <span class="ruby-value str">'Macias'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacIulis/</span>, <span class="ruby-value str">'Maciulis'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacKie/</span>, <span class="ruby-value str">'Mackie'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacKle/</span>, <span class="ruby-value str">'Mackle'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacKlin/</span>, <span class="ruby-value str">'Macklin'</span>)
+      <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bMacQuarie/</span>, <span class="ruby-value str">'Macquarie'</span>)
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">'Macmurdo'</span>,<span class="ruby-value str">'MacMurdo'</span>)
+
+    <span class="ruby-comment cmt"># Fixes for &quot;son (daughter) of&quot; etc</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bAl(?=\s+\w)/</span>, <span class="ruby-value str">'al'</span>)  <span class="ruby-comment cmt"># al Arabic or forename Al.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bAp\b/</span>, <span class="ruby-value str">'ap'</span>)         <span class="ruby-comment cmt"># ap Welsh.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bBen(?=\s+\w)/</span>,<span class="ruby-value str">'ben'</span>) <span class="ruby-comment cmt"># ben Hebrew or forename Ben.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bDell([ae])\b/</span>,<span class="ruby-value str">'dell\1'</span>)  <span class="ruby-comment cmt"># della and delle Italian.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bD([aeiu])\b/</span>,<span class="ruby-value str">'d\1'</span>)   <span class="ruby-comment cmt"># da, de, di Italian; du French.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bDe([lr])\b/</span>,<span class="ruby-value str">'de\1'</span>)   <span class="ruby-comment cmt"># del Italian; der Dutch/Flemish.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bEl\b/</span>,<span class="ruby-value str">'el'</span>)   <span class="ruby-comment cmt"># el Greek or El Spanish.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bLa\b/</span>,<span class="ruby-value str">'la'</span>)   <span class="ruby-comment cmt"># la French or La Spanish.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bL([eo])\b/</span>,<span class="ruby-value str">'l\1'</span>)      <span class="ruby-comment cmt"># lo Italian; le French.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bVan(?=\s+\w)/</span>,<span class="ruby-value str">'van'</span>)  <span class="ruby-comment cmt"># van German or forename Van.</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\bVon\b/</span>,<span class="ruby-value str">'von'</span>)  <span class="ruby-comment cmt"># von Dutch/Flemish</span>
+
+    <span class="ruby-comment cmt"># Fix roman numeral names</span>
+    <span class="ruby-identifier">localstring</span>.<span class="ruby-identifier">gsub!</span>(
+      <span class="ruby-regexp re">/ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
+             (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b /</span><span class="ruby-identifier">x</span>
+    ) { <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">upcase</span> }
+
+    <span class="ruby-identifier">localstring</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
