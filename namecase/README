@@ -3,7 +3,7 @@
 Version 1.0.0 - 2005/11/2
 
 Original version by Mark Summerfield <http://search.cpan.org/~summer/>
-Ruby port by Aaron Patterson <aaron.patterson@gmail.com>
+Ruby port by Aaron Patterson <aaronp@rubyforge.org>
 
 NameCase is a Ruby implementation of Lingua::EN::NameCase, a library for
 converting strings to be properly cased.  This is good for converting

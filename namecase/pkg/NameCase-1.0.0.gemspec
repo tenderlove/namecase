@@ -14,6 +14,7 @@ spec = Gem::Specification.new do |s|
   s.test_file     = "test/test_namecase.rb"
   s.has_rdoc      = true
   s.extra_rdoc_files = ["README"]
+  s.rubyforge_project = "namecase"
 end
 
 if $0 == __FILE__
