@@ -1,3 +1,5 @@
+require 'version'
+
 class NameCase < String
 
   # Returns a new +String+ with the contents properly namecased
