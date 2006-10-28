@@ -1,6 +1,6 @@
 == NameCase
 
-Version 1.0.0 - 2005/11/2
+Version 1.0.2 - 2006/10/24
 
 Original version by Mark Summerfield <http://search.cpan.org/~summer/>
 Ruby port by Aaron Patterson <aaronp@rubyforge.org>
@@ -31,9 +31,8 @@ Copyright (c) Mark Summerfield 1998-2002.
 All Rights Reserved
 
 Ruby Version:
-Copyright (c) Aaron Patterson 2005
+Copyright (c) Aaron Patterson 2006
 
 * License
 
 NameCase is distributed under the GPL license.  Please see the LICENSE file.
-

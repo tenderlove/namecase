@@ -1,4 +1,11 @@
-*1.0.0*
+= NameCase CHANGELOG
+
+== 1.0.2
+
+* Updating NameCase to work with the new Edge Rails ActiveSupport::Multibye
+  class.  Thanks Dan Kubb (dan.kubb@autopilotmarketing.com)
+
+== 1.0.0
 
 * Initial release
 

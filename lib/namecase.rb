@@ -4,9 +4,15 @@ class NameCase < String
 
   # Returns a new +String+ with the contents properly namecased
   def nc
-    localstring = self.downcase
-    localstring.gsub!(/\b\w/) { |first| first.upcase }
-    localstring.gsub!("\'\w\b") { |c| c.downcase } # Lowercase 's
+    if respond_to?(:chars)
+      localstring = chars.downcase.to_s
+      localstring.gsub!(/\b\w/) { |first| first.chars.upcase }
+      localstring.gsub!(/\'\w\b/) { |c| c.chars.downcase } # Lowercase 's
+    else
+      localstring = downcase
+      localstring.gsub!(/\b\w/) { |first| first.upcase }
+      localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
+    end
 
     if localstring =~ /\bMac[A-Za-z]{2,}[^aciozj]\b/ or localstring =~ /\bMc/
       localstring.gsub!(/\b(Ma?c)([A-Za-z]+)/) { |match| $1 + $2.capitalize }
