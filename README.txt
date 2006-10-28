@@ -1,13 +1,17 @@
-== NameCase
+= NameCase
+
+  http://namecase.rubyforge.org/
 
 Version 1.0.2 - 2006/10/24
 
-Original version by Mark Summerfield <http://search.cpan.org/~summer/>
-Ruby port by Aaron Patterson <aaronp@rubyforge.org>
+== DESCRIPTION
 
 NameCase is a Ruby implementation of Lingua::EN::NameCase, a library for
-converting strings to be properly cased.  This is good for converting
+converting strings to be properly cased. This is good for converting
 denormalized data to human friendly data.
+
+Original version by Mark Summerfield <http://search.cpan.org/~summer/>
+Ruby port by Aaron Patterson <aaronp@rubyforge.org>
 
 * Example Usage
 

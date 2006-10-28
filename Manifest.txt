@@ -1,0 +1,5 @@
+README.txt
+CHANGELOG.txt
+LICENSE.txt
+lib/namecase.rb
+lib/version.rb

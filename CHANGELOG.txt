@@ -4,6 +4,7 @@
 
 * Updating NameCase to work with the new Edge Rails ActiveSupport::Multibye
   class.  Thanks Dan Kubb (dan.kubb@autopilotmarketing.com)
+* Converted to Hoe.
 
 == 1.0.0
 
