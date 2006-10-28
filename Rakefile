@@ -13,4 +13,5 @@ Hoe.new(PKG_NAME, PKG_VERSION) do |p|
   p.description     = p.paragraphs_of('README.txt', 4).join("\n\n")
   p.url             = p.paragraphs_of('README.txt', 1).first.strip
   p.changes         = p.paragraphs_of('CHANGELOG.txt', 0..2).join("\n\n")
+  p.extra_deps      = []
 end
