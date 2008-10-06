@@ -1,5 +1,7 @@
-README.txt
-CHANGELOG.txt
+History.txt
 LICENSE.txt
+Manifest.txt
+README.txt
+Rakefile
 lib/namecase.rb
-lib/version.rb
+test/test_namecase.rb
