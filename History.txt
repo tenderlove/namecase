@@ -1,5 +1,14 @@
 = NameCase CHANGELOG
 
+== 1.1.0
+
+* New Features:
+  * NameCase() function returns a namecased string
+  * NameCase.nc methind returns a namecased string
+
+* Bug Fixes:
+  * Not using chars method, was breaking 1.8.7
+
 == 1.0.2
 
 * Updating NameCase to work with the new Edge Rails ActiveSupport::Multibye

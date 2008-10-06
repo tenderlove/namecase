@@ -33,6 +33,8 @@ class TestNameCase < Test::Unit::TestCase
     @proper_names.each do |name|
       nc_name = NameCase.new(name)
       assert_equal(name, nc_name.downcase.nc)
+      assert_equal(name, NameCase.nc(name))
+      assert_equal(name, NameCase(name))
     end
   end
 
@@ -44,14 +46,10 @@ class TestNameCase < Test::Unit::TestCase
   end
 
   def test_namecase_multibyte
-    String.class_eval { define_method(:chars) { self } }
-
     $KCODE = 'u'
 
     proper_cased = 'Iñtërnâtiônàlizætiøn'
     nc_name = NameCase.new(proper_cased)
-    assert_equal(proper_cased, nc_name.downcase.nc!)
-
-    String.class_eval { undef_method :chars }
+    assert_equal(proper_cased, nc_name.downcase.nc)
   end
 end
