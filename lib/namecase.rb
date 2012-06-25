@@ -1,11 +1,5 @@
-class NameCase < String
-  VERSION = '1.1.0'
-
-  class << self
-    def nc string
-      new(string).nc
-    end
-  end
+module NameCase
+  VERSION = '1.2.0'
 
   # Returns a new +String+ with the contents properly namecased
   def nc
@@ -60,5 +54,9 @@ class NameCase < String
 end
 
 def NameCase string
-  NameCase.new(string).nc
+  string.dup.extend(NameCase).nc
+end
+
+def NameCase! string
+  string.extend(NameCase).nc!
 end
