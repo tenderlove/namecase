@@ -3,7 +3,7 @@ module NameCase
 
   # Returns a new +String+ with the contents properly namecased
   def nc(options = {})
-    options = { :lazy => true }.merge options
+    options = { :lazy => true, :irish => false }.merge options
 
     # Skip if string is mixed case
     if options[:lazy]
@@ -17,24 +17,27 @@ module NameCase
     localstring.gsub!(/\b\w/) { |first| first.upcase }
     localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
 
-    if localstring =~ /\bMac[A-Za-z]{2,}[^aciozj]\b/ or localstring =~ /\bMc/
-      match = localstring.match(/\b(Ma?c)([A-Za-z]+)/)
-      localstring.gsub!(/\bMa?c[A-Za-z]+/) { match[1] + match[2].capitalize }
+    if options[:irish]
+      if localstring =~ /\bMac[A-Za-z]{2,}[^aciozj]\b/ or localstring =~ /\bMc/
+        match = localstring.match(/\b(Ma?c)([A-Za-z]+)/)
+        localstring.gsub!(/\bMa?c[A-Za-z]+/) { match[1] + match[2].capitalize }
 
-      # Now fix "Mac" exceptions
-      localstring.gsub!(/\bMacEvicius/, 'Macevicius')
-      localstring.gsub!(/\bMacHado/, 'Machado')
-      localstring.gsub!(/\bMacHar/, 'Machar')
-      localstring.gsub!(/\bMacHin/, 'Machin')
-      localstring.gsub!(/\bMacHlin/, 'Machlin')
-      localstring.gsub!(/\bMacIas/, 'Macias')
-      localstring.gsub!(/\bMacIulis/, 'Maciulis')
-      localstring.gsub!(/\bMacKie/, 'Mackie')
-      localstring.gsub!(/\bMacKle/, 'Mackle')
-      localstring.gsub!(/\bMacKlin/, 'Macklin')
-      localstring.gsub!(/\bMacQuarie/, 'Macquarie')
+        # Now fix "Mac" exceptions
+        localstring.gsub!(/\bMacEvicius/, 'Macevicius')
+        localstring.gsub!(/\bMacHado/, 'Machado')
+        localstring.gsub!(/\bMacEdo/, 'Macedo')
+        localstring.gsub!(/\bMacHar/, 'Machar')
+        localstring.gsub!(/\bMacHin/, 'Machin')
+        localstring.gsub!(/\bMacHlin/, 'Machlin')
+        localstring.gsub!(/\bMacIas/, 'Macias')
+        localstring.gsub!(/\bMacIulis/, 'Maciulis')
+        localstring.gsub!(/\bMacKie/, 'Mackie')
+        localstring.gsub!(/\bMacKle/, 'Mackle')
+        localstring.gsub!(/\bMacKlin/, 'Macklin')
+        localstring.gsub!(/\bMacQuarie/, 'Macquarie')
+      end
+      localstring.gsub!('Macmurdo','MacMurdo')
     end
-    localstring.gsub!('Macmurdo','MacMurdo')
 
     # Fixes for "son (daughter) of" etc
     localstring.gsub!(/\bAl(?=\s+\w)/, 'al')  # al Arabic or forename Al.
