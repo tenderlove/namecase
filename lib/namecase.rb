@@ -2,7 +2,17 @@ module NameCase
   VERSION = '1.2.0'
 
   # Returns a new +String+ with the contents properly namecased
-  def nc
+  def nc(options = {})
+    options = { :lazy => true }.merge options
+
+    # Skip if string is mixed case
+    if options[:lazy]
+      first_letter_lower = self[0] == self.downcase[0]
+      all_lower_or_upper = (self.downcase == self || self.upcase == self)
+
+      return self unless first_letter_lower || all_lower_or_upper
+    end
+
     localstring = downcase
     localstring.gsub!(/\b\w/) { |first| first.upcase }
     localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
@@ -49,15 +59,15 @@ module NameCase
   end
 
   # Modifies _str_ in place and properly namecases the string.
-  def nc!
-    self.gsub!(self, self.nc)
+  def nc!(options = {})
+    self.gsub!(self, self.nc(options))
   end
 end
 
-def NameCase string
-  string.dup.extend(NameCase).nc
+def NameCase(string, options = {})
+  string.dup.extend(NameCase).nc(options)
 end
 
-def NameCase! string
-  string.extend(NameCase).nc!
+def NameCase!(string, options = {})
+  string.extend(NameCase).nc!(options)
 end
