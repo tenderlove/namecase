@@ -18,7 +18,8 @@ module NameCase
     localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
 
     if localstring =~ /\bMac[A-Za-z]{2,}[^aciozj]\b/ or localstring =~ /\bMc/
-      localstring.gsub!(/\b(Ma?c)([A-Za-z]+)/) { |match| $1 + $2.capitalize }
+      match = localstring.match(/\b(Ma?c)([A-Za-z]+)/)
+      localstring.gsub!(/\bMa?c[A-Za-z]+/) { match[1] + match[2].capitalize }
 
       # Now fix "Mac" exceptions
       localstring.gsub!(/\bMacEvicius/, 'Macevicius')
