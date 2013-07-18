@@ -28,6 +28,7 @@ class NameCase < String
       localstring.gsub!(/\bMacKle/, 'Mackle')
       localstring.gsub!(/\bMacKlin/, 'Macklin')
       localstring.gsub!(/\bMacQuarie/, 'Macquarie')
+      localstring.gsub!(/\bMacKmin/, 'Mackmin')
     end
     localstring.gsub!('Macmurdo','MacMurdo')
 
