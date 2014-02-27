@@ -23,9 +23,9 @@ module NameCase
         localstring.gsub!(/\bMa?c[A-Za-z]+/) { match[1] + match[2].capitalize }
 
         # Now fix "Mac" exceptions
+        localstring.gsub!(/\bMacEdo/, 'Macedo')
         localstring.gsub!(/\bMacEvicius/, 'Macevicius')
         localstring.gsub!(/\bMacHado/, 'Machado')
-        localstring.gsub!(/\bMacEdo/, 'Macedo')
         localstring.gsub!(/\bMacHar/, 'Machar')
         localstring.gsub!(/\bMacHin/, 'Machin')
         localstring.gsub!(/\bMacHlin/, 'Machlin')
@@ -34,6 +34,7 @@ module NameCase
         localstring.gsub!(/\bMacKie/, 'Mackie')
         localstring.gsub!(/\bMacKle/, 'Mackle')
         localstring.gsub!(/\bMacKlin/, 'Macklin')
+        localstring.gsub!(/\bMacKmin/, 'Mackmin')
         localstring.gsub!(/\bMacQuarie/, 'Macquarie')
       end
       localstring.gsub!('Macmurdo','MacMurdo')
