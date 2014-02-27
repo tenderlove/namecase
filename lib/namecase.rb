@@ -3,7 +3,7 @@ module NameCase
 
   # Returns a new +String+ with the contents properly namecased
   def nc(options = {})
-    options = { :lazy => true, :irish => false }.merge options
+    options = { :lazy => true, :irish => true }.merge options
 
     # Skip if string is mixed case
     if options[:lazy]
