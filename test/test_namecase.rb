@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 $:.unshift File.join(File.dirname(__FILE__), "..", "test")
 
@@ -31,17 +33,18 @@ class TestNameCase < Test::Unit::TestCase
 
   def test_namecase
     @proper_names.each do |name|
-      nc_name = NameCase.new(name)
-      assert_equal(name, nc_name.downcase.nc)
-      assert_equal(name, NameCase.nc(name))
+      assert_equal(name, NameCase(name.downcase))
+      n = name.dup
+      n.extend(NameCase)
+      assert_equal(name, n.nc)
       assert_equal(name, NameCase(name))
     end
   end
 
   def test_namecase_modify
     @proper_names.each do |name|
-      nc_name = NameCase.new(name)
-      assert_equal(name, nc_name.downcase.nc!)
+      nc_name = NameCase!(name.downcase)
+      assert_equal(name, nc_name)
     end
   end
 
@@ -49,7 +52,7 @@ class TestNameCase < Test::Unit::TestCase
     $KCODE = 'u'
 
     proper_cased = 'Iñtërnâtiônàlizætiøn'
-    nc_name = NameCase.new(proper_cased)
-    assert_equal(proper_cased, nc_name.downcase.nc)
+    nc_name = NameCase(proper_cased.downcase)
+    assert_equal(proper_cased, nc_name)
   end
 end
