@@ -58,7 +58,7 @@ module NameCase
     localstring.gsub!(
       / \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
              (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b /x
-    ) { |match| match.upcase }
+    ) { |m| m.upcase }
 
     localstring
   end

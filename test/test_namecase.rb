@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 #
-$:.unshift File.join(File.dirname(__FILE__), "..", "lib")
-$:.unshift File.join(File.dirname(__FILE__), "..", "test")
-
 require 'namecase'
-require 'test/unit'
+require 'minitest/autorun'
 
-class TestNameCase < Test::Unit::TestCase
+class TestNameCase < Minitest::Test
   def setup
     @proper_names = [
       "Keith",            "Leigh-Williams",       "McCarthy",
@@ -49,8 +46,6 @@ class TestNameCase < Test::Unit::TestCase
   end
 
   def test_namecase_multibyte
-    $KCODE = 'u'
-
     proper_cased = 'Iñtërnâtiônàlizætiøn'
     nc_name = NameCase(proper_cased.downcase)
     assert_equal(proper_cased, nc_name)
