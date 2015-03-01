@@ -1,5 +1,5 @@
 module NameCase
-  VERSION = '1.2.0'
+  VERSION = '2.0.0'
 
   # Returns a new +String+ with the contents properly namecased
   def nc(options = {})
