@@ -8,7 +8,7 @@ module NameCase
 
   # Modifies _str_ in place and properly namecases the string.
   def nc!(options = {})
-    replace self.nc(options)
+    NameCase.nc! self, options
   end
 
   def self.nc! str, options = {}
