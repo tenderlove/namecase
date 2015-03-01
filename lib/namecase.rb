@@ -65,7 +65,7 @@ module NameCase
 
   # Modifies _str_ in place and properly namecases the string.
   def nc!(options = {})
-    self.gsub!(self, self.nc(options))
+    self.replace self.nc(options)
   end
 end
 
