@@ -3,17 +3,30 @@ module NameCase
 
   # Returns a new +String+ with the contents properly namecased
   def nc(options = {})
+    NameCase.nc self, options
+  end
+
+  # Modifies _str_ in place and properly namecases the string.
+  def nc!(options = {})
+    replace self.nc(options)
+  end
+
+  def self.nc! str, options = {}
+    str.replace NameCase.nc(str, options)
+  end
+
+  def self.nc str, options = {}
     options = { :lazy => true, :irish => true }.merge options
 
     # Skip if string is mixed case
     if options[:lazy]
-      first_letter_lower = self[0] == self.downcase[0]
-      all_lower_or_upper = (self.downcase == self || self.upcase == self)
+      first_letter_lower = str[0] == str.downcase[0]
+      all_lower_or_upper = (str.downcase == str || str.upcase == str)
 
-      return self unless first_letter_lower || all_lower_or_upper
+      return str unless first_letter_lower || all_lower_or_upper
     end
 
-    localstring = downcase
+    localstring = str.downcase
     localstring.gsub!(/\b\w/) { |first| first.upcase }
     localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
 
@@ -62,17 +75,12 @@ module NameCase
 
     localstring
   end
-
-  # Modifies _str_ in place and properly namecases the string.
-  def nc!(options = {})
-    self.replace self.nc(options)
-  end
 end
 
 def NameCase(string, options = {})
-  string.dup.extend(NameCase).nc(options)
+  NameCase.nc string, options
 end
 
 def NameCase!(string, options = {})
-  string.extend(NameCase).nc!(options)
+  NameCase.nc! string, options
 end
