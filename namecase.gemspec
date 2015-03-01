@@ -1,19 +1,39 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+# stub: namecase 2.0.0 ruby lib
 
 Gem::Specification.new do |s|
-  s.name        = "namecase"
-  s.version     = '1.2.0'
-  s.authors     = ["tenderlove", "DanX"]
-  s.email       = ["someemail@somewhere.com", "danx.exe@gmail.com"]
-  s.homepage    = "http://namecase.rubyforge.org/namecase/"
-  s.summary     = %q{Correct the case of names.}
-  s.description = %q{With a plethora of rules and exceptions, NameCase helps you to capitalize names with relative confidence. Ported from Perl ( Lingua::EN::NameCase ) to Ruby by Aaron Patterson, with contributions from others.}
+  s.name = "namecase"
+  s.version = "2.0.0"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  s.authors = ["Aaron Patterson"]
+  s.date = "2015-03-01"
+  s.description = "NameCase is a Ruby implementation of `Lingua::EN::NameCase`, a library for\nconverting strings to be properly cased. This is good for converting\ndenormalized data to human friendly data."
+  s.email = ["aaronp@rubyforge.org"]
+  s.extra_rdoc_files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.txt"]
+  s.files = [".gemtest", "Gemfile", "History.txt", "LICENSE.txt", "Manifest.txt", "README.txt", "Rakefile", "lib/namecase.rb", "test/test_namecase.rb"]
+  s.homepage = "http://namecase.rubyforge.org/"
+  s.licenses = ["GPL"]
+  s.rdoc_options = ["--main", "README.md"]
+  s.rubygems_version = "2.4.5"
+  s.summary = "NameCase is a Ruby implementation of `Lingua::EN::NameCase`, a library for converting strings to be properly cased"
+  s.test_files = ["test/test_namecase.rb"]
 
-  s.add_development_dependency "hoe"
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
+
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_development_dependency(%q<rdoc>, ["~> 4.0"])
+      s.add_development_dependency(%q<minitest>, ["~> 4.0"])
+      s.add_development_dependency(%q<hoe>, ["~> 3.13"])
+    else
+      s.add_dependency(%q<rdoc>, ["~> 4.0"])
+      s.add_dependency(%q<minitest>, ["~> 4.0"])
+      s.add_dependency(%q<hoe>, ["~> 3.13"])
+    end
+  else
+    s.add_dependency(%q<rdoc>, ["~> 4.0"])
+    s.add_dependency(%q<minitest>, ["~> 4.0"])
+    s.add_dependency(%q<hoe>, ["~> 3.13"])
+  end
 end
