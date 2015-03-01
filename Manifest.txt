@@ -2,7 +2,8 @@ Gemfile
 History.txt
 LICENSE.txt
 Manifest.txt
-README.txt
+README.md
 Rakefile
 lib/namecase.rb
+namecase.gemspec
 test/test_namecase.rb
