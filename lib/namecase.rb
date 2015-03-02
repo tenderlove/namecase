@@ -55,6 +55,7 @@ module NameCase
 
     # Fixes for "son (daughter) of" etc
     localstring.gsub!(/\bAl(?=\s+\w)/, 'al')  # al Arabic or forename Al.
+    localstring.gsub!(/\b(Bin|Binti|Binte)\b/,'bin')  # bin, binti, binte Arabic
     localstring.gsub!(/\bAp\b/, 'ap')         # ap Welsh.
     localstring.gsub!(/\bBen(?=\s+\w)/,'ben') # ben Hebrew or forename Ben.
     localstring.gsub!(/\bDell([ae])\b/,'dell\1')  # della and delle Italian.
