@@ -24,7 +24,7 @@ class TestNameCase < Minitest::Test
       "Maciulis",         "Macias",               "MacMurdo",
       # Roman numerals
       "Henry VIII",       "Louis III",            "Louis XIV",
-      "Charles II",       "Fred XLIX",
+      "Charles II",       "Fred XLIX",            "Yusof bin Ishak",
     ]
   end
 
