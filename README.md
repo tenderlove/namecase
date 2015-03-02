@@ -1,6 +1,6 @@
-# [NameCase](http://namecase.rubyforge.org/)
+# [NameCase](https://rubygems.org/gems/namecase)
 
-http://namecase.rubyforge.org/
+https://rubygems.org/gems/namecase
 
 ## Description
 
@@ -36,4 +36,4 @@ Copyright (c) Aaron Patterson 2006
 NameCase is distributed under the GPL license.  Please see the LICENSE file.
 
 
-  [2]: https://metacpan.org/release/SUMMER/Lingua-EN-NameCase-1.12 
+  [2]: https://metacpan.org/release/SUMMER/Lingua-EN-NameCase-1.12
