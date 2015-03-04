@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.date = "2015-03-01"
   s.description = "NameCase is a Ruby implementation of `Lingua::EN::NameCase`, a library for\nconverting strings to be properly cased. This is good for converting\ndenormalized data to human friendly data."
   s.email = ["aaronp@rubyforge.org"]
-  s.extra_rdoc_files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.txt"]
-  s.files = [".gemtest", "Gemfile", "History.txt", "LICENSE.txt", "Manifest.txt", "README.txt", "Rakefile", "lib/namecase.rb", "test/test_namecase.rb"]
+  s.extra_rdoc_files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.md"]
+  s.files = [".gemtest", "Gemfile", "History.txt", "LICENSE.txt", "Manifest.txt", "README.md", "Rakefile", "lib/namecase.rb", "test/test_namecase.rb"]
   s.homepage = "http://namecase.rubyforge.org/"
   s.licenses = ["GPL"]
   s.rdoc_options = ["--main", "README.md"]
