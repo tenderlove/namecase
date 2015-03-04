@@ -16,7 +16,7 @@ module NameCase
   end
 
   def self.nc str, options = {}
-    options = { :lazy => true, :irish => true }.merge options
+    options = { :lazy => true, :irish => true, :spanish => true }.merge options
 
     # Skip if string is mixed case
     if options[:lazy]
@@ -73,6 +73,12 @@ module NameCase
       / \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
              (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b /x
     ) { |m| m.upcase }
+
+    if options[:spanish]
+      ["Y", "E", "I"].each do |conjunction|
+        localstring.gsub!(/\b#{conjunction}\b/, conjunction.downcase)
+      end
+    end
 
     localstring
   end

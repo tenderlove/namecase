@@ -17,6 +17,7 @@ class TestNameCase < Minitest::Test
       "del Crond",        "der Sind",             "van der Post",
       "von Trapp",        "la Poisson",           "le Figaro",
       "Mack Knife",       "Dougal MacDonald",
+      "Ruiz y Picasso",   "Dato e Iradier",       "Mas i Gavarró",
       # Mac exceptions
       "Machin",           "Machlin",              "Machar",
       "Mackle",           "Macklin",              "Mackie",
