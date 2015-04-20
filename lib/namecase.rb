@@ -51,6 +51,7 @@ module NameCase
         localstring.gsub!(/\bMacQuarie/, 'Macquarie')
       end
       localstring.gsub!('Macmurdo','MacMurdo')
+      localstring.gsub!('Macknowski','MacKnowski')
     end
 
     # Fixes for "son (daughter) of" etc
