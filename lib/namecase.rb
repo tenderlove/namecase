@@ -65,8 +65,8 @@ module NameCase
     localstring.gsub!(/\bEl\b/,'el')   # el Greek or El Spanish.
     localstring.gsub!(/\bLa\b/,'la')   # la French or La Spanish.
     localstring.gsub!(/\bL([eo])\b/,'l\1')      # lo Italian; le French.
-    localstring.gsub!(/\bVan(?=\s+\w)/,'van')  # van German or forename Van.
-    localstring.gsub!(/\bVon\b/,'von')  # von Dutch/Flemish
+    localstring.gsub!(/\bVan(?=\s+\w)/,'van')  # van Dutch/Flemish or forename Van.
+    localstring.gsub!(/\bVon\b/,'von')  # von German
 
     # Fix roman numeral names
     localstring.gsub!(
