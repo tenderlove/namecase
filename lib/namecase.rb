@@ -59,19 +59,19 @@ module NameCase
     localstring.gsub!(/\bAp\b/, 'ap')         # ap Welsh.
     localstring.gsub!(/\bBen(?=\s+\w)/,'ben') # ben Hebrew or forename Ben.
     localstring.gsub!(/\bDell([ae])\b/,'dell\1')  # della and delle Italian.
-    localstring.gsub!(/\bD([aeiou])\b/,'d\1')   # da, de, di Italian; du French; do Brasil
+    localstring.gsub!(/\bD([aeiou'’])\b/,'d\1')   # da, de, di Italian; du, d' French; do Brasil
     localstring.gsub!(/\bD([ao]s)\b/,'d\1')   # das, dos Brasileiros
     localstring.gsub!(/\bDe([lr])\b/,'de\1')   # del Italian; der Dutch/Flemish.
     localstring.gsub!(/\bEl\b/,'el')   # el Greek or El Spanish.
     localstring.gsub!(/\bLa\b/,'la')   # la French or La Spanish.
-    localstring.gsub!(/\bL([eo])\b/,'l\1')      # lo Italian; le French.
+    localstring.gsub!(/\bL([eo'’])\b/,'l\1')      # lo Italian; le, l' French.
     localstring.gsub!(/\bVan(?=\s+\w)/,'van')  # van German or forename Van.
     localstring.gsub!(/\bVon\b/,'von')  # von Dutch/Flemish
 
     # Fix roman numeral names
     localstring.gsub!(
       / \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
-             (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b /x
+             (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b (?= \s | \z ) /x
     ) { |m| m.upcase }
 
     if options[:spanish]

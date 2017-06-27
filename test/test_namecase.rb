@@ -14,6 +14,8 @@ class TestNameCase < Minitest::Test
       "ben Gurion",       "Ben-Gurion",           "Ben",
       "da Vinci",
       "di Caprio",        "du Pont",              "de Legate",
+      "d'Alembert",       "d’Alembert",
+      "de l'Hôpital",     "de l’Hôpital",
       "del Crond",        "der Sind",             "van der Post",
       "von Trapp",        "la Poisson",           "le Figaro",
       "Mack Knife",       "Dougal MacDonald",
