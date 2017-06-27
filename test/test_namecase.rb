@@ -11,7 +11,7 @@ class TestNameCase < Minitest::Test
       "van Dyke",         "Van",                  "ap Llwyd Dafydd",
       "al Fahd",          "al-Fahd",              "Al",
       "el Grecco",
-      "ben Gurion",       "Ben",
+      "ben Gurion",       "Ben-Gurion",           "Ben",
       "da Vinci",
       "di Caprio",        "du Pont",              "de Legate",
       "del Crond",        "der Sind",             "van der Post",
