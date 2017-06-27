@@ -9,7 +9,7 @@ class TestNameCase < Minitest::Test
       "Keith",            "Leigh-Williams",       "McCarthy",
       "O'Callaghan",      "St. John",             "von Streit",
       "van Dyke",         "Van",                  "ap Llwyd Dafydd",
-      "al Fahd",          "Al",
+      "al Fahd",          "al-Fahd",              "Al",
       "el Grecco",
       "ben Gurion",       "Ben",
       "da Vinci",
