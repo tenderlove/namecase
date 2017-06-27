@@ -54,10 +54,10 @@ module NameCase
     end
 
     # Fixes for "son (daughter) of" etc
-    localstring.gsub!(/\bAl\b(?=.+\w)/, 'al')  # al Arabic or forename Al.
+    localstring.gsub!(/\bAl\b(?=.+\w)/, 'al')  # al Arabic, but NOT the first name Al.
     localstring.gsub!(/\b(Bin|Binti|Binte)\b/,'bin')  # bin, binti, binte Arabic
     localstring.gsub!(/\bAp\b/, 'ap')         # ap Welsh.
-    localstring.gsub!(/\bBen(?=\s+\w)/,'ben') # ben Hebrew or forename Ben.
+    localstring.gsub!(/\bBen(?=\s+\w)/,'ben') # ben Hebrew, but NOT the first name Ben.
     localstring.gsub!(/\bDell([ae])\b/,'dell\1')  # della and delle Italian.
     localstring.gsub!(/\bD([aeiou'’])\b/,'d\1')   # da, de, di Italian; du, d' French; do Brasil
     localstring.gsub!(/\bD([ao]s)\b/,'d\1')   # das, dos Brasileiros
@@ -65,7 +65,7 @@ module NameCase
     localstring.gsub!(/\bEl\b/,'el')   # el Greek or El Spanish.
     localstring.gsub!(/\bLa\b/,'la')   # la French or La Spanish.
     localstring.gsub!(/\bL([eo'’])\b/,'l\1')      # lo Italian; le, l' French.
-    localstring.gsub!(/\bVan(?=\s+\w)/,'van')  # van German or forename Van.
+    localstring.gsub!(/\bVan(?=\s+\w)/,'van')  # van German, but NOT the first name Van.
     localstring.gsub!(/\bVon\b/,'von')  # von Dutch/Flemish
 
     # Fix roman numeral names
