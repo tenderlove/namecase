@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["aaronp@rubyforge.org"]
   s.extra_rdoc_files = ["History.txt", "LICENSE.txt", "Manifest.txt", "README.md"]
   s.files = [".gemtest", "Gemfile", "History.txt", "LICENSE.txt", "Manifest.txt", "README.md", "Rakefile", "lib/namecase.rb", "test/test_namecase.rb"]
-  s.homepage = "http://namecase.rubyforge.org/"
+  s.homepage = "https://rubygems.org/gems/namecase"
   s.licenses = ["GPL"]
   s.rdoc_options = ["--main", "README.md"]
   s.rubygems_version = "2.4.5"
