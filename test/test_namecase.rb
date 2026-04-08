@@ -26,6 +26,8 @@ class TestNameCase < Minitest::Test
       # Roman numerals
       "Henry VIII",       "Louis III",            "Louis XIV",
       "Charles II",       "Fred XLIX",            "Yusof bin Ishak",
+      # Apostrophe names (not particles)
+      "La'Shea",          "Da'Quan",              "Le'Andre",
     ]
   end
 
@@ -53,7 +55,7 @@ class TestNameCase < Minitest::Test
   end
 
   def test_that_it_skips_son_or_daughter_of_formatting
-    names = ["De Shawn", "Da'Quan", "Le'Andre", "La Tonya"]
+    names = ["De Shawn", "La Tonya"]
 
     names.each do |name|
       nc_name = NameCase(name.downcase, son_or_daughter_of: false)
