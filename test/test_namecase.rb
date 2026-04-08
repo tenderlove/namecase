@@ -26,6 +26,8 @@ class TestNameCase < Minitest::Test
       # Roman numerals
       "Henry VIII",       "Louis III",            "Louis XIV",
       "Charles II",       "Fred XLIX",            "Yusof bin Ishak",
+      # Apostrophe names (not particles)
+      "La'Shea",          "Da'Quan",              "Le'Andre",
     ]
   end
 
