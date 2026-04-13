@@ -30,8 +30,8 @@ module NameCase
     end
 
     localstring = str.downcase
-    localstring.gsub!(/\b\w/) { |first| first.upcase }
-    localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
+    localstring.gsub!(/\b\p{Word}/) { |first| first.upcase }
+    localstring.gsub!(/\'\p{Word}\b/) { |c| c.downcase } # Lowercase 's
 
     if options[:irish]
       if localstring =~ /\bMac[A-Za-z]{2,}[^aciozj]\b/ or localstring =~ /\bMc/
@@ -60,10 +60,10 @@ module NameCase
 
     if options[:son_or_daughter_of]
       # Fixes for "son (daughter) of" etc
-      localstring.gsub!(/\bAl(?=\s+\w)/, 'al')  # al Arabic or forename Al.
+      localstring.gsub!(/\bAl(?=\s+\p{Word})/, 'al')  # al Arabic or forename Al.
       localstring.gsub!(/\b(Bin|Binti|Binte)\b/,'bin')  # bin, binti, binte Arabic
       localstring.gsub!(/\bAp\b/, 'ap')         # ap Welsh.
-      localstring.gsub!(/\bBen(?=\s+\w)/,'ben') # ben Hebrew or forename Ben.
+      localstring.gsub!(/\bBen(?=\s+\p{Word})/,'ben') # ben Hebrew or forename Ben.
       localstring.gsub!(/\bDell([ae])\b/,'dell\1')  # della and delle Italian.
       localstring.gsub!(/\bD([aeiou'])\b/,'d\1')   # da, de, di Italian; du/d' French; do Brasil
       localstring.gsub!(/\bD([ao]s)\b/,'d\1')   # das, dos Brasileiros
@@ -71,7 +71,7 @@ module NameCase
       localstring.gsub!(/\bEl\b/,'el')   # el Greek or El Spanish.
       localstring.gsub!(/\bLa\b/,'la')   # la French or La Spanish.
       localstring.gsub!(/\bL([eo])\b/,'l\1')      # lo Italian; le French.
-      localstring.gsub!(/\bVan(?=\s+\w)/,'van')  # van German or forename Van.
+      localstring.gsub!(/\bVan(?=\s+\p{Word})/,'van')  # van German or forename Van.
       localstring.gsub!(/\bVon\b/,'von')  # von Dutch/Flemish
     end
 

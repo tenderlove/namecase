@@ -26,6 +26,9 @@ class TestNameCase < Minitest::Test
       # Roman numerals
       "Henry VIII",       "Louis III",            "Louis XIV",
       "Charles II",       "Fred XLIX",            "Yusof bin Ishak",
+      # Multibyte characters
+      "Iñtërnâtiônàlizætiøn",
+      "Öykü Çelik",
     ]
   end
 
@@ -44,12 +47,6 @@ class TestNameCase < Minitest::Test
       nc_name = NameCase!(name.downcase)
       assert_equal(name, nc_name)
     end
-  end
-
-  def test_namecase_multibyte
-    proper_cased = 'Iñtërnâtiônàlizætiøn'
-    nc_name = NameCase(proper_cased.downcase)
-    assert_equal(proper_cased, nc_name)
   end
 
   def test_that_it_skips_son_or_daughter_of_formatting
